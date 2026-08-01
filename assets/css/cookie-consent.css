@@ -1,0 +1,111 @@
+/*--------------------------------------------------------------
+# Cookie Consent Notice
+--------------------------------------------------------------*/
+#cookieConsent {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  background: #0E2430;
+  color: #ffffff;
+  padding: 20px 24px;
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.18);
+  transform: translateY(120%);
+  transition: transform 0.5s ease;
+  font-family: var(--default-font, "Roboto", sans-serif);
+}
+
+#cookieConsent.show {
+  transform: translateY(0);
+}
+
+#cookieConsent .cookie-consent-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+#cookieConsent .cookie-consent-text {
+  flex: 1 1 380px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #ffffff;
+  margin: 0;
+}
+
+#cookieConsent .cookie-consent-text strong {
+  color: #ffffff;
+}
+
+#cookieConsent .cookie-consent-text a {
+  color: #4FD1A5;
+  text-decoration: underline;
+}
+
+#cookieConsent .cookie-consent-text a:hover {
+  color: #ffffff;
+}
+
+#cookieConsent .cookie-consent-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+}
+
+#cookieConsent .cookie-consent-btn {
+  border: none;
+  border-radius: 50px;
+  padding: 11px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+#cookieConsent .cookie-consent-btn.accept {
+  background: #0F8A6D;
+  color: #ffffff;
+}
+
+#cookieConsent .cookie-consent-btn.accept:hover {
+  background: #0c6f58;
+}
+
+#cookieConsent .cookie-consent-btn.decline {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+#cookieConsent .cookie-consent-btn.decline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
+}
+
+@media (max-width: 767px) {
+  #cookieConsent {
+    padding: 18px;
+  }
+
+  #cookieConsent .cookie-consent-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  #cookieConsent .cookie-consent-actions {
+    justify-content: stretch;
+  }
+
+  #cookieConsent .cookie-consent-btn {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+}
