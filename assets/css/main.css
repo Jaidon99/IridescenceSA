@@ -1022,6 +1022,145 @@ section,
 }
 
 /*--------------------------------------------------------------
+# Video Hero Section
+--------------------------------------------------------------*/
+.video-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #0E2430;
+}
+
+.video-hero-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 0;
+}
+
+.video-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.70);
+  z-index: 1;
+}
+
+.video-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 20px;
+  color: #ffffff;
+}
+
+.video-hero-content h1 {
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: 56px;
+  color: #ffffff;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
+}
+
+.video-hero-logo {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  margin: 0 auto 20px;
+  filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.4));
+}
+
+.video-hero-content p {
+  font-family: var(--default-font);
+  font-weight: 300;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.92);
+  letter-spacing: 0.5px;
+  margin: 0;
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 768px) {
+  .video-hero-content h1 {
+    font-size: 34px;
+  }
+
+  .video-hero-logo {
+    max-width: 200px;
+    margin-bottom: 14px;
+  }
+
+  .video-hero-content p {
+    font-size: 18px;
+  }
+}
+
+.video-hero-scroll {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: var(--nav-font);
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+  transition: opacity 0.3s;
+  animation: video-hero-bounce 2s infinite;
+}
+
+.video-hero-scroll:hover {
+  color: #ffffff;
+  opacity: 1;
+}
+
+.video-hero-scroll i {
+  font-size: 20px;
+}
+
+@keyframes video-hero-bounce {
+  0%, 100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 8px);
+  }
+}
+
+/* Homepage nav over the video hero: white by default, green on hover/active */
+body.index-page:not(.scrolled) .navmenu a,
+body.index-page:not(.scrolled) .navmenu a:focus,
+body.index-page:not(.scrolled) .mobile-nav-toggle {
+  color: #ffffff;
+}
+
+body.index-page:not(.scrolled) .navmenu li:hover > a,
+body.index-page:not(.scrolled) .navmenu .active,
+body.index-page:not(.scrolled) .navmenu .active:focus {
+  color: var(--nav-hover-color);
+}
+
+/*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
 .hero {
@@ -1029,7 +1168,9 @@ section,
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, var(--surface-color) 0%, color-mix(in srgb, var(--accent-color), transparent 95%) 100%);
+  background:
+    linear-gradient(to bottom, #0E2430 0%, rgba(14, 36, 48, 0) 100%) top / 100% 260px no-repeat,
+    linear-gradient(135deg, var(--surface-color) 0%, color-mix(in srgb, var(--accent-color), transparent 95%) 100%);
   overflow: hidden;
 }
 
