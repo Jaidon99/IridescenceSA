@@ -1148,17 +1148,44 @@ section,
 }
 
 /* Homepage nav over the video hero: white by default, green on hover/active */
-body.index-page:not(.scrolled) .navmenu a,
-body.index-page:not(.scrolled) .navmenu a:focus,
+/* Scoped to the TOP-LEVEL links only (> ul > li > a), so the "More" dropdown
+   items underneath are not forced white-on-white too. */
+body.index-page:not(.scrolled) .navmenu > ul > li > a,
+body.index-page:not(.scrolled) .navmenu > ul > li > a:focus,
 body.index-page:not(.scrolled) .mobile-nav-toggle {
   color: #ffffff;
 }
 
-body.index-page:not(.scrolled) .navmenu li:hover > a,
-body.index-page:not(.scrolled) .navmenu .active,
-body.index-page:not(.scrolled) .navmenu .active:focus {
+body.index-page:not(.scrolled) .navmenu > ul > li:hover > a,
+body.index-page:not(.scrolled) .navmenu > ul > li > a.active,
+body.index-page:not(.scrolled) .navmenu > ul > li > a.active:focus {
   color: var(--nav-hover-color);
 }
+
+/* Homepage "More" dropdown panel: glass effect over the video hero, with
+   white text so it reads over the busy video background. */
+@media (min-width: 1200px) {
+  body.index-page:not(.scrolled) .navmenu .dropdown ul {
+    background: rgba(10, 20, 18, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  body.index-page:not(.scrolled) .navmenu .dropdown ul a,
+  body.index-page:not(.scrolled) .navmenu .dropdown ul a:focus {
+    color: #ffffff;
+  }
+
+  body.index-page:not(.scrolled) .navmenu .dropdown ul a:hover,
+  body.index-page:not(.scrolled) .navmenu .dropdown ul li:hover > a {
+    color: var(--nav-dropdown-hover-color);
+  }
+}
+
+/* Same fix for the mobile flyout: once scrolled state isn't the trigger,
+   the top-level scoping above already stops white-on-white from happening
+   in the "More" submenu inside the mobile menu. */
 
 /*--------------------------------------------------------------
 # Hero Section
