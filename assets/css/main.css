@@ -1183,9 +1183,57 @@ body.index-page:not(.scrolled) .navmenu > ul > li > a.active:focus {
   }
 }
 
-/* Same fix for the mobile flyout: once scrolled state isn't the trigger,
-   the top-level scoping above already stops white-on-white from happening
-   in the "More" submenu inside the mobile menu. */
+/* Homepage mobile nav flyout: same glass treatment as the desktop "More"
+   panel, applied to the full-screen mobile menu while it's shown over the
+   video hero (i.e. before the page has been scrolled). */
+@media (max-width: 1199px) {
+  body.index-page:not(.scrolled).mobile-nav-active .navmenu {
+    background: rgba(10, 20, 18, 0.75);
+  }
+
+  body.index-page:not(.scrolled) .navmenu > ul {
+    background: rgba(10, 20, 18, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  body.index-page:not(.scrolled) .navmenu > ul > li > a,
+  body.index-page:not(.scrolled) .navmenu > ul > li > a:focus {
+    color: #ffffff;
+  }
+
+  body.index-page:not(.scrolled) .navmenu > ul > li > a i,
+  body.index-page:not(.scrolled) .navmenu > ul > li > a:focus i {
+    background-color: rgba(255, 255, 255, 0.14);
+  }
+
+  body.index-page:not(.scrolled) .navmenu > ul > li > a:hover,
+  body.index-page:not(.scrolled) .navmenu > ul > li > a.active,
+  body.index-page:not(.scrolled) .navmenu > ul > li > a.active:focus {
+    color: var(--nav-hover-color);
+  }
+
+  body.index-page:not(.scrolled) .navmenu > ul > li > a.active i,
+  body.index-page:not(.scrolled) .navmenu > ul > li > a.active:focus i {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+  }
+
+  body.index-page:not(.scrolled) .navmenu .dropdown ul {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  body.index-page:not(.scrolled) .navmenu .dropdown ul a,
+  body.index-page:not(.scrolled) .navmenu .dropdown ul a:focus {
+    color: #ffffff;
+  }
+
+  body.index-page:not(.scrolled) .navmenu .dropdown ul a:hover,
+  body.index-page:not(.scrolled) .navmenu .dropdown ul li:hover > a {
+    color: var(--nav-dropdown-hover-color);
+  }
+}
 
 /*--------------------------------------------------------------
 # Hero Section
